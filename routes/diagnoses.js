@@ -1,6 +1,6 @@
 const express = require("express");
 const File = require("../models/File");
-// const console = require("../utils/console");
+const logger = require("../utils/logger");
 
 const router = express.Router();
 
@@ -8,7 +8,7 @@ router.get("/diagnoses", async (req, res) => {
   const { page = 1, limit = 10 } = req.query;
 
   try {
-    console.info(`Fetching files: Page ${page}, Limit ${limit}`);
+    logger.info(`Fetching files: Page ${page}, Limit ${limit}`);
     // Convert page and limit to integers
     const pageNumber = parseInt(page, 10);
     const pageSize = parseInt(limit, 10);
@@ -20,7 +20,7 @@ router.get("/diagnoses", async (req, res) => {
       pageNumber < 1 ||
       pageSize < 1
     ) {
-      console.error("Invalid pagination parameters");
+      logger.error("Invalid pagination parameters");
       return res.status(400).json({ error: "Invalid pagination parameters." });
     }
 
@@ -38,7 +38,7 @@ router.get("/diagnoses", async (req, res) => {
 
     // Calculate total pages
     const totalPages = Math.ceil(totalFiles / pageSize);
-    console.info(`Successfully fetched ${files.length} files.`);
+    logger.info(`Successfully fetched ${files.length} files.`);
     // Send paginated result
     res.status(200).json({
       files,
@@ -50,7 +50,7 @@ router.get("/diagnoses", async (req, res) => {
       },
     });
   } catch (error) {
-    console.error(`Error fetching files: ${error.message}`);
+    logger.error(`Error fetching files: ${error.message}`);
     res.status(500).json({ error: "Failed to fetch files." });
   }
 });

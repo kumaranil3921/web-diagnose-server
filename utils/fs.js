@@ -17,7 +17,7 @@ function fileExists(filePath) {
   try {
     return fs.existsSync(filePath); // Returns true if file exists
   } catch (err) {
-    console.error("Error checking file existence:", err);
+    logger.error("Error checking file existence:", {err});
     return false; // Return false in case of any error
   }
 }

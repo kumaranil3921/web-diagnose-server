@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const { googleServiceAccountJson } = require("../config");
 const { deleteFile, fileExists } = require("../utils/fs");
+const logger = require('../utils/logger')
 
 // Read and parse the JSON credentials from the environment variable
 const SERVICE_ACCOUNT_KEY_JSON = JSON.parse(googleServiceAccountJson);
@@ -47,7 +48,7 @@ async function uploadFile(authClient, filePath) {
       fields: "id",
     });
 
-    console.log("File uploaded successfully:", file.data.id);
+    logger.info(`File uploaded successfully: ${file.data.id}`);
 
     // Make the file publicly accessible
     await drive.permissions.create({
@@ -59,14 +60,14 @@ async function uploadFile(authClient, filePath) {
     });
 
     const publicUrl = `https://drive.google.com/uc?id=${file.data.id}`;
-    console.log("Public File URL:", publicUrl);
+    logger.info(`Public File URL: ${publicUrl}`);
 
     // Delete the local file after upload
     await deleteFile(filePath);
 
     return { publicUrl, id: file.data.id };
   } catch (error) {
-    console.error("Error uploading file to Google Drive:", error);
+    logger.error("Error uploading file to Google Drive:", {error});
     throw error;
   }
 }

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const cloudinary = require("cloudinary").v2;
 const { cloudinary: cloudConfig } = require("../config");
+const logger = require('../utils/logger')
 
 cloudinary.config({
   cloud_name: cloudConfig.cloudName,
@@ -11,7 +12,7 @@ cloudinary.config({
 const uploadFile = async (file) => {
   try {
     if (!fs.existsSync(file)) {
-      console.log("No file available at given path");
+      logger.info("No file available at given path");
       return;
     }
     const result = await cloudinary.uploader.upload(file, {
@@ -22,7 +23,7 @@ const uploadFile = async (file) => {
     });
     return result;
   } catch (error) {
-    console.log("error", error);
+    logger.log("error", error);
     throw new Error("Error uploading file to Cloudinary");
   }
 };

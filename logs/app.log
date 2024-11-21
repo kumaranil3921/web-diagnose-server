@@ -1,0 +1,13 @@
+{"level":"error","message":"Error connecting to MongoDB:"}
+{"level":"info","message":"Server running on http://localhost:4000"}
+{"level":"error","message":"Error connecting to MongoDB:"}
+{"level":"info","message":"Server running on http://localhost:4000"}
+{"level":"error","message":"Error connecting to MongoDB: Cannot create property 'Symbol(level)' on string 'MongoDB connected'","stack":"TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'\n    at DerivedLogger.log (/Users/concordant/Documents/Learning/shopify/web-diagnose-be-server/node_modules/winston/lib/winston/logger.js:214:20)\n    at /Users/concordant/Documents/Learning/shopify/web-diagnose-be-server/app.js:18:12\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"}
+{"level":"info","message":"Server running on http://localhost:4000"}
+{"level":"info","message":"MongoDB connected"}
+[2024-11-21T09:03:05.479Z] INFO: Server running on http://localhost:4000 | Response Time: undefinedms | Status Code: undefined
+[2024-11-21T09:03:06.436Z] INFO: MongoDB connected | Response Time: undefinedms | Status Code: undefined
+[2024-11-21T09:03:28.396Z] INFO: GET /api/diagnoses?page=1&limit=10 | Response Time: 154ms | Status Code: 304
+[2024-11-21T09:03:28.548Z] INFO: GET /api/diagnoses?page=1&limit=10 | Response Time: 151ms | Status Code: 304
+[2024-11-21T09:06:10.771Z] INFO: Server running on http://localhost:4000 | Response Time: undefinedms | Status Code: undefined
+[2024-11-21T09:06:12.083Z] INFO: MongoDB connected | Response Time: undefinedms | Status Code: undefined
