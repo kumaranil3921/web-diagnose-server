@@ -1,0 +1,25 @@
+{
+  "name": "web-diagnose-be-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cloudinary": "^2.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "google-auth-library": "^9.15.0",
+    "googleapis": "^144.0.0",
+    "mongoose": "^8.8.2",
+    "pdfkit": "^0.15.1",
+    "winston": "^3.17.0"
+  }
+}

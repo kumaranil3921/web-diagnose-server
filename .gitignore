@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+
+# yarn error logs
+yarn-error.log
+
+# Environment varibales
+.env*
+!.env*.example
+
+# Code coverage
+coverage
+CODE_OF_CONDUCT.md
+CHANGELOG.md
+.travis.yml
+CONTRIBUTING.md
+Dockerfile
+docker-compose.yml
+docker-compose.test.yml
+docker-compose.prod.yml
+docker-compose.dev.yml
+
+# vscode
+.vscode
+# uploaded files
+uploads
+
+.DS_STORE
