@@ -26,3 +26,7 @@ docker-compose.dev.yml
 uploads
 
 .DS_STORE
+
+#logs
+logs
+logs/*.log

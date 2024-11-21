@@ -16,7 +16,7 @@ router.post("/pagespeed", async (req, res) => {
   } = req.body;
 
   if (!url) {
-    console.error("Missing 'url' parameter");
+    logger.error("Missing 'url' parameter");
     return res.status(400).json({ error: "The 'url' parameter is required." });
   }
 
@@ -38,7 +38,7 @@ router.post("/pagespeed", async (req, res) => {
     const { lighthouseResult } = data;
 
     if (!lighthouseResult) {
-      console.error("No Lighthouse results found");
+      logger.error("No Lighthouse results found");
       return res
         .status(500)
         .json({ error: "No Lighthouse results found in the response." });
